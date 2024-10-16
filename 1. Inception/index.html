@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root">React not rendered</div>
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<!-- <script crossorigin defer src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin defer src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
+<script>
+    // window.onload = () => {  // we need window.onload or event listener - DOMContentLoaded when we use defer or async bez defer executes script after HTML parsing, befort that local script get to run, and async doesn't guarantee order, but without any asyn and defer it guarentees order and it executes script before Html parsing and also before local script as written before that.
+    const heading = React.createElement("h1", { id: "root", key: "root" }, "Hello World"); // used key because rendering like list inside div
+    const about = React.createElement("p", { id: "article_body", key: 'article_body' }, "Hi, there!!")
+    const article = React.createElement("div", {}, [heading, about])
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(article)
+    // }
+</script>
+
+</html>
